@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2014/11/03 15:21:56 by tvallee           #+#    #+#             */
+/*   Updated: 2014/12/10 15:43:40 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (i < n)
+	{
+		if (*((unsigned char *)s1 + i) != *((unsigned char *)s2 + i))
+			return (*((unsigned char *)s1 + i)) - *((unsigned char *)s2 + i);
+		i++;
+	}
+	return (0);
+}

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2015/02/03 14:38:25 by tvallee           #+#    #+#             */
+/*   Updated: 2015/02/03 15:52:20 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
-
-#endif
+int		ft_isspace(int c)
+{
+	return ((c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+				|| c == ' ') ? 1 : 0);
+}

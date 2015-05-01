@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2014/11/04 13:48:55 by tvallee           #+#    #+#             */
+/*   Updated: 2014/11/08 17:29:51 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	char	*tmp;
 
-#endif
+	tmp = (char *)s + ft_strlen(s);
+	while (s < tmp && *tmp != (char)c)
+		tmp--;
+	if (*tmp == (char)c)
+		return (tmp);
+	else
+		return (NULL);
+}

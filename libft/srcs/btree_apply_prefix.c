@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   btree_apply_prefix.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2015/02/10 12:34:26 by tvallee           #+#    #+#             */
+/*   Updated: 2015/02/10 12:35:23 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
-
-#endif
+void    btree_apply_prefix(t_btree *root, void (*applyf)(void *))
+{
+	if (root)
+	{
+		applyf(root->item);
+		btree_apply_prefix(root->left);
+		btree_apply_prefix(root->right);
+	}
+}

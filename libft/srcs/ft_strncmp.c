@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   strncmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2014/11/04 14:40:36 by tvallee           #+#    #+#             */
+/*   Updated: 2014/11/07 22:42:29 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
-
-#endif
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	if (n == 0)
+		return (0);
+	n--;
+	while (*s1 == *s2 && *s1 && n)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	return (*s1 - *s2);
+}

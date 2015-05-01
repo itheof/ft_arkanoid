@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2014/11/04 23:38:22 by tvallee           #+#    #+#             */
+/*   Updated: 2014/11/06 17:35:27 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
+char	*ft_strnew(size_t size)
+{
+	char	*str;
 
-#endif
+	str = malloc((size + 1) * sizeof(char));
+	if (str)
+	{
+		while (size != 0)
+		{
+			str[size] = 0;
+			size--;
+		}
+		str[size] = 0;
+	}
+	return (str);
+}

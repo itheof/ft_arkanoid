@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2014/11/05 10:52:24 by tvallee           #+#    #+#             */
+/*   Updated: 2014/11/06 19:17:21 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
+char	*ft_strmap(char const *s, char (*f)(char))
+{
+	char	*r;
+	size_t	i;
 
-#endif
+	r = (s) ? malloc(sizeof(char) * (1 + ft_strlen(s))) : NULL;
+	i = 0;
+	if (s && f && r)
+	{
+		while (i < ft_strlen(s))
+		{
+			r[i] = f(s[i]);
+			i++;
+		}
+		r[i] = 0;
+	}
+	return (r);
+}

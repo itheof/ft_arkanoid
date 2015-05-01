@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   ft_lsttotab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2015/01/13 16:55:44 by tvallee           #+#    #+#             */
+/*   Updated: 2015/01/13 17:10:55 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
+void	**ft_lsttotab(t_list *list, int destroy)
+{
+	void	**tab;
+	int		len;
+	int		i;
+	t_list	bu;
 
-#endif
+	i = 0;
+	len = ft_lstlen(list);
+	tab = malloc(sizeof(*tab) * (len + 1));
+	while (list)
+	{
+		tab[i] = list->content;
+		bu = *list;
+		if (destroy)
+			free(list);
+		list = bu.next;
+		i++;
+	}
+	tab[i] = NULL;
+	return (tab);
+}

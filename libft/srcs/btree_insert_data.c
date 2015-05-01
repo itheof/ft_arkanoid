@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   btree_insert_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2015/02/10 12:40:10 by tvallee           #+#    #+#             */
+/*   Updated: 2015/02/10 12:47:01 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
-
-#endif
+void btree_insert_data(t_btree **root, void *item, int (*cmpf)(void *, void *))
+{
+	if (*root)
+	{
+		if (cmpf(item, (*root)->item) < 0)
+			btree_insert_data((*root)->left, item, cmpf);
+		else
+			btree_insert_data((*root)->right, item, cmpf);
+	}
+	else
+		*root = btree_create_node(item);
+}

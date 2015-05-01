@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   ft_lstpushback.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 00:41:41 by tvallee          ###   ########.fr       */
+/*   Created: 2015/01/14 09:40:24 by tvallee           #+#    #+#             */
+/*   Updated: 2015/01/14 09:50:12 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "libft.h"
 
-# include "glfw3.h"
-# include "libft.h"
+void	ft_lstpushback(t_list **list, t_list *elem)
+{
+	t_list	*current;
 
-#endif
+	if (list)
+	{
+		if (*list)
+		{
+			current = *list;
+			while (current->next)
+				current = current->next;
+			current->next = elem;
+		}
+		else
+			*list=elem;
+	}
+}
