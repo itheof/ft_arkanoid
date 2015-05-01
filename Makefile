@@ -6,7 +6,7 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/01 23:30:02 by tvallee          ###   ########.fr        #
+#    Updated: 2015/05/02 00:18:30 by tvallee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,19 @@ OBJ		= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJ)
-	@echo "Building Libft"
+$(NAME): init_sub build_glfw $(OBJ_DIR) $(OBJ)
 	@make -C Libft
-	@echo "Building GLFW"
-	@cd lib
-	@cmake DCMAKE_INSTALL_PREFIXPATH=$PWD/glfw/lib .
-	@make
-	@cd ..
 	@echo "Linkin'"
 	@$(CC) $(CFLAGS) $(SRCS) $(INC) $(LIB)
 	@echo "Done !"
+
+init_sub:
+	@git submodule init
+	@git submodule update
+
+build_glfw:
+	@echo "Building GLFW"
+	@cd lib ; cmake DCMAKE_INSTALL_PREFIXPATH=./lib . ; make
 
 $(OBJ_DIR)/%.o: %.c
 	@echo "Compiling $<."
