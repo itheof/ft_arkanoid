@@ -6,7 +6,7 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/02 00:18:30 by tvallee          ###   ########.fr        #
+#    Updated: 2015/05/02 00:25:12 by tvallee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ init_sub:
 
 build_glfw:
 	@echo "Building GLFW"
-	@cd lib ; cmake DCMAKE_INSTALL_PREFIXPATH=./lib . ; make
+	@cd lib ; cmake -DCMAKE_INSTALL_PREFIXPATH=./lib . ; make install
 
 $(OBJ_DIR)/%.o: %.c
 	@echo "Compiling $<."
