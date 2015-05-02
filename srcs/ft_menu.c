@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_menu.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/02 02:34:55 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 07:05:04 by tvallee          ###   ########.fr       */
+/*   Created: 2015/05/02 05:17:17 by tvallee           #+#    #+#             */
+/*   Updated: 2015/05/02 06:03:11 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arkanoid.h"
 
-void	init_hooks(t_env *e)
+void	ft_menu(t_env *e, int selected)
 {
-	glfwSetKeyCallback(e->window, key_callback);
+	if (selected)
+	{
+		return ;
+	}
+	else if (e != NULL)
+	{
+		return ;
+	}
+	else
+		return;
 }

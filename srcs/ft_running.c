@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_running.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/02 02:34:55 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 07:05:04 by tvallee          ###   ########.fr       */
+/*   Created: 2015/05/02 05:37:03 by tvallee           #+#    #+#             */
+/*   Updated: 2015/05/02 06:04:52 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arkanoid.h"
 
-void	init_hooks(t_env *e)
+void	ft_running(t_env *e)
 {
-	glfwSetKeyCallback(e->window, key_callback);
+	if (e)
+		sleep(1);
 }

@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 02:25:38 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 03:42:40 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/02 07:41:57 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 int	check_levels(int ac, char **av, t_env *e)
 {
-	DIR		*dir;
+	DIR				*dir;
+	struct dirent	*file;
 
 	if (ac != 0)
 	{
-		e->lvl_dir = ft_strjoin(av[0], "/levels", 0);
+		e->lvl_dir = ft_strjoin(ft_strndup(av[0], ft_strlen(av[0]) -
+						ft_strlen(ft_strrchr(av[0], '/'))), "/levels", 1);
 		if (!(dir = opendir(e->lvl_dir)))
 			return (0);
-		if (!readdir(dir))
+		if (!(file = readdir(dir)))
 		{
 			closedir(dir);
 			return (0);
 		}
+		free(e->lvl_dir);
+		load_levels(e, dir, file);
 		return (1);
 	}
 	return (0);
