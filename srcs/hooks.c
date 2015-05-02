@@ -33,7 +33,9 @@ void	ft_right(t_env *e)
 	if (G_RUNNING)
 	{
 		e->pos_bar = (e->pos_bar < 0.92) ? e->pos_bar + 0.08 : 1;
+		/*
 		draw(e);
+		*/
 	}
 }
 
@@ -42,7 +44,9 @@ void	ft_left(t_env *e)
 	if (G_RUNNING)
 	{
 		e->pos_bar = (e->pos_bar > -0.92) ? e->pos_bar - 0.08 : -1;
+		/*
 		draw(e);
+		*/
 	}
 }
 

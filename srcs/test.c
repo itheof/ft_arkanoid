@@ -33,14 +33,45 @@ t_env	*ft_singleton(t_env *e)
 	return (save);
 }
 
+void	ft_print_levels(t_lvl *lvl)
+{
+	int i;
+	int j;
+	int	**tab;
+
+	if (!lvl)
+		return ;
+	tab = lvl->lvl;
+	i = 0;
+	j = 0;
+	ft_putchar(10);
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[i][j])
+		{
+			ft_putnbr(tab[i][j]);
+			ft_putchar(' ');
+			j++;
+		}
+		ft_putchar(10);
+		i++;
+	}
+	ft_print_levels(lvl->next);
+}
+
 int main(int ac, char **av)
 {
 	t_env	e;
 
+	ft_singleton(&e);
+	e.lvl_list = NULL;
 	if (!check_levels(ac, av, &e))
 		return (-1);
 	if (!glfwInit())
 		return (-1);
+	ft_print_levels(e.lvl_list);
+	/*
 	e.window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
 	if (!e.window)
 	{
@@ -59,6 +90,7 @@ int main(int ac, char **av)
 		glfwPollEvents();
 	}
 	glfwTerminate();
+*/
 /*	ft_exit(&e);*/
 	return 0;
 }

@@ -28,9 +28,7 @@ int	check_levels(int ac, char **av, t_env *e)
 			closedir(dir);
 			return (0);
 		}
-		free(e->lvl_dir);
-/*		load_levels(e, dir, file);
- *		*/
+		load_levels(e, dir, file);
 		return (1);
 	}
 	return (0);

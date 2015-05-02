@@ -15,6 +15,7 @@
 
 # include <sys/types.h>
 # include <dirent.h>
+# include <fcntl.h>
 # include "glfw3.h"
 # include "libft.h"
 
@@ -73,6 +74,7 @@ void					ft_right(t_env *e);
 void					ft_down(t_env *e);
 
 void					draw(t_env *e);
+void					ft_print_levels(t_lvl *lvl);
 
 void					ft_enter(t_env *e);
 

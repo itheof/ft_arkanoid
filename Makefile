@@ -10,7 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= draw.c check_levels.c init.c test.c ft_menu.c ft_running.c hooks.c
+SRC		=  check_levels.c init.c test.c ft_menu.c ft_running.c hooks.c \
+			load_level.c
 NAME	= ft_arkanoid
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -pedantic -Wshadow -Wno-missing-noreturn\
