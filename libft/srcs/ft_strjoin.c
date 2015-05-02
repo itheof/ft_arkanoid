@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 12:09:05 by tvallee           #+#    #+#             */
-/*   Updated: 2014/12/30 08:49:45 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/02 01:12:48 by tvallee          ###   ########.fr       */
 /*   ## nb specifes input strings to free, 3 = both, 0 = none                 */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char		*ft_strjoin(char const *s1, char const *s2, int nb)
 	int		i;
 	int		j;
 
+	r = NULL;
 	if (s1 && s2)
 	{
 		r = ft_memalloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));

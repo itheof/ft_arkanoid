@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arkanoid.h                                      :+:      :+:    :+:   */
+/*   check_levels.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 02:56:08 by tvallee          ###   ########.fr       */
+/*   Created: 2015/05/02 02:25:38 by tvallee           #+#    #+#             */
+/*   Updated: 2015/05/02 02:33:46 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#include "ft_arkanoid.h"
 
-# include "glfw3.h"
-# include "libft.h"
-
-typedef struct			s_env
+int	check_levels(int ac, char **av, t_env *e)
 {
-	GLFWwindow			*window;
-	char				*lvl_dir;
-}						t_env;
+	DIR		*dir;
 
-#endif
+	if (ac != 0)
+	{
+		temp = ft_strjoin(av[0], "/levels", 0);
+		if (!(dir = opendir(temp)))
+			return (0);
+		if (!readdir(dir))
+		{
+			closedir(dir);
+			return (0);
+		}
+		return (1);
+	}
+}
