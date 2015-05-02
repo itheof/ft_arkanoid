@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 05:37:41 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 09:07:10 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/02 15:49:12 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ void	ft_left(t_env *e)
 		e->pos_bar = (e->pos_bar > -0.92) ? e->pos_bar - 0.08 : -1;
 		draw(e);
 	}
+}
+
+void ft_enter(t_env *e)
+{
+	e = e;
 }
 
 void	key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)

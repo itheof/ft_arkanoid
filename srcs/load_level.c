@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 07:24:55 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 08:49:32 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/02 14:43:42 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		**get_tab(int fd, t_list *temp)
 		list = list->next;
 		free(temp);
 	}
+	tab[i] = 0;
 	return (tab);
 }
 
@@ -80,7 +81,7 @@ t_lvl	*ft_parse_lvl(struct dirent *file, DIR *dir)
 }
 
 void	load_levels(t_env *e, DIR *dir, struct dirent *dirent)
-{z
+{
 	if (e->lvl_list)
 		clean_levels(t_env *e);
 	e->lvl_list = ft_parse_lvl(dirent, dir);

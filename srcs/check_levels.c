@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 02:25:38 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 07:41:57 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/02 15:51:07 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	check_levels(int ac, char **av, t_env *e)
 			return (0);
 		}
 		free(e->lvl_dir);
-		load_levels(e, dir, file);
+/*		load_levels(e, dir, file);
+ *		*/
 		return (1);
 	}
 	return (0);

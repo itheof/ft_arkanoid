@@ -6,11 +6,11 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/02 07:05:40 by tvallee          ###   ########.fr        #
+#    Updated: 2015/05/02 15:46:59 by rcargou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= check_levels.c init.c test.c ft_menu.c ft_running.c hooks.c
+SRC		= draw.c check_levels.c init.c test.c ft_menu.c ft_running.c hooks.c
 NAME	= ft_arkanoid
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -pedantic -Wshadow -Wno-missing-noreturn\
