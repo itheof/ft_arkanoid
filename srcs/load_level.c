@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 07:24:55 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 08:45:05 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/02 08:49:32 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,18 @@ void	clean_levels(t_env *e)
 int		*ft_toline(char **tab)
 {
 	int		*res;
+	int		i;
 
-	res = ft_memalloc(sizeof(int) * (ft_tablen());
+	i = 0;
+	res = ft_memalloc(sizeof(int) * (ft_tablen(tab) + 1));
+	while (tab[i])
+	{
+		res[i] = ft_atoi(tab[i]);
+		free(tab[i++]);
+	}
+	free(tab);
+	res[i] = 0;
+	return (res);
 }
 
 int		**get_tab(int fd, t_list *temp)
@@ -34,7 +44,7 @@ int		**get_tab(int fd, t_list *temp)
 	list = NULL;
 	while (get_next_line(&str, fd) == 1)
 		ft_lstpushback(&list, ft_lstnewcopy(ft_strsplit(str, ' '), 0));
-	tab = ft_memalloc(sizeof(int *) * (ft_lstlen(list)));
+	tab = ft_memalloc(sizeof(int *) * (ft_lstlen(list) + 1));
 	i = 0;
 	while (list)
 	{
@@ -43,7 +53,7 @@ int		**get_tab(int fd, t_list *temp)
 		list = list->next;
 		free(temp);
 	}
-	tab[i] = NULL;
+	return (tab);
 }
 
 t_lvl	*ft_parse_lvl(struct dirent *file, DIR *dir)
