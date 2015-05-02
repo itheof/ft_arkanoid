@@ -43,8 +43,7 @@ b = 0;
 c = 0;
 	if (j > 4)
 		return ;
-	printf("i: %d, j: %d\n", (int)i, (int)j);
-	get_color((e->lvl_list->lvl)[(int)i][(int)j], &a, &b, &c);
+	get_color((e->lvl_list->lvl)[(int)j][(int)i], &a, &b, &c);
 	glBegin(GL_QUADS);
 	glColor3f(a, b, c);
 	glVertex3f(i * 2 / 20 - 1 + (i + 1) * 0.05,
