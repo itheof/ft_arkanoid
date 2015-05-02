@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_levels.c                                     :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/02 02:25:38 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 02:33:46 by tvallee          ###   ########.fr       */
+/*   Created: 2015/05/02 02:34:55 by tvallee           #+#    #+#             */
+/*   Updated: 2015/05/02 03:39:14 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arkanoid.h"
 
-int	check_levels(int ac, char **av, t_env *e)
+void	init_env(t_env *e)
 {
-	DIR		*dir;
+	if (e)
+		return ;
+	else
+		return ;
+}
 
-	if (ac != 0)
-	{
-		temp = ft_strjoin(av[0], "/levels", 0);
-		if (!(dir = opendir(temp)))
-			return (0);
-		if (!readdir(dir))
-		{
-			closedir(dir);
-			return (0);
-		}
-		return (1);
-	}
+void	init_hooks(t_env *e)
+{
+	if (e)
+		return ;
+	else
+		return ;
 }

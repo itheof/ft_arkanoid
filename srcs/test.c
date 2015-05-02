@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:23:54 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 02:55:53 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/02 03:06:32 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int ac, char **av)
 {
 	t_env	e;
 
-	if (!check_levels(int ac, char **av, &e))
+	if (!check_levels(ac, av, &e))
 		return (-1);
 	init_env(&e);
 	if (!glfwInit())
@@ -37,6 +37,6 @@ int main(int ac, char **av)
 		glfwPollEvents();
 	}
 	glfwTerminate();
-	ft_exit(&e);
+/*	ft_exit(&e);*/
 	return 0;
 }
