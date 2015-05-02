@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:23:54 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 15:59:09 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/02 17:10:53 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int main(int ac, char **av)
 	if (!glfwInit())
 		return (-1);
 	ft_print_levels(e.lvl_list);
-	/*
+	
 	e.window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
 	if (!e.window)
 	{
@@ -85,12 +85,13 @@ int main(int ac, char **av)
 	ft_singleton(&e);
 	while (!glfwWindowShouldClose(e.window))
 	{
+		draw(&e);
 		rule_them_all(&e);
 		glfwSwapBuffers(e.window);
 		glfwPollEvents();
 	}
 	glfwTerminate();
-*/
+
 /*	ft_exit(&e);*/
 	return 0;
 }

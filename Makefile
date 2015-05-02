@@ -6,15 +6,15 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/02 15:46:59 by rcargou          ###   ########.fr        #
+#    Updated: 2015/05/02 17:10:33 by rcargou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC		=  check_levels.c init.c test.c ft_menu.c ft_running.c hooks.c \
-			load_level.c
+			load_level.c draw.c
 NAME	= ft_arkanoid
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -pedantic -Wshadow -Wno-missing-noreturn\
+CFLssAGS	= -Wall -Wextra -Werror -pedantic -Wshadow -Wno-missing-noreturn\
 		  -Wno-padded -Wno-unreachable-code -Wredundant-decls -g\
 		  -Wmissing-declarations
 SRC_DIR	= srcs
