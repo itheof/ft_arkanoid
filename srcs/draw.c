@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 14:21:39 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/02 15:48:51 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/02 16:18:42 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ static void draw_rectangle(float i, float j, t_env *e)
     glBegin(GL_QUADS);
 	glColor3f(a, b, c);
 	glVertex3f(i * 2 / 20 - 1 + (i + 1) * 0.05, j * 2 / 10 - 1 + (j + 1) * 0.025, 0);
-	glVertex3f(i * 2 / 20 - 1 + (i + 1) * 0.05, j * 2 / 10 - 1 + (j + 1) * 0.025, 0);
-	glVertex3f(i * 2 / 20 - 1 + (i + 1) * 0.05, j * 2 / 10 - 1 + (j + 1) * 0.025, 0);
-	glVertex3f(i * 2 / 20 - 1 + (i + 1) * 0.05, j * 2 / 10 - 1 + (j + 1) * 0.025, 0);
+	glVertex3f(i * 2 / 20 - 1 + (i + 1) * 0.05 +, j * 2 / 10 - 1 + (j + 1) * 0.025, 0);
+	glVertex3f(i * 2 / 20 - 1 + (i + 1) * 0.05 + 0.02, j * 2 / 10 - 1 + (j + 1) * 0.025 + 0.0125, 0);
+	glVertex3f(i * 2 / 20 - 1 + (i + 1) * 0.05 + 0.02, j * 2 / 10 - 1 + (j + 1) * 0.025 + 0.0125, 0);
 	glEnd();
 	if (i == 9)
 	{
@@ -60,4 +60,5 @@ void draw(t_env *e)
 {
 	glLoadIdentity();
 	draw_rectangle(0, 0, e);
+	glfwSwapBuffers(window);
 }
