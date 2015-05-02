@@ -15,6 +15,7 @@
 
 # include <sys/types.h>
 # include <dirent.h>
+# include <math.h>
 # include <fcntl.h>
 # include "glfw3.h"
 # include "libft.h"
@@ -23,9 +24,10 @@
 # define G_RUNNING e->state == 1
 # define G_MENU e->state == 0
 # define G_OVER e->state == 3
+# define DEFAULT_SPEED 0.05
 
-#define WINX 900;
-#define WINY 700;
+#define WINX 900
+#define WINY 700
 
 enum {
 	NO_BLOCK,
@@ -40,12 +42,21 @@ typedef struct			s_lvl
 	struct s_lvl		*next;
 }						t_lvl;
 
+typedef struct			s_ball
+{
+	int					tethered;
+	double				pos_x;
+	double				pos_y;
+	double				s_x;
+	double				s_y;
+}						t_ball;
+
 typedef struct			s_env
 {
 	GLFWwindow			*window;
 	int					list_pos;
 	int					state;
-	double				pos_bar;
+	t_ball				ball;
 	char				*lvl_dir;
 	t_lvl				*lvl_list;
 }						t_env;

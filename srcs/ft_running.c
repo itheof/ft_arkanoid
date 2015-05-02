@@ -14,6 +14,15 @@
 
 void	ft_running(t_env *e)
 {
-	if (e)
-		sleep(1);
+	if (!e->ball.tethered)
+	{
+/*		if (can_move(e->ball))
+		{*/
+			e->ball.pos_x += e->ball.s_x;
+			e->ball.pos_y += e->ball.s_y;
+/*		}
+		else
+			collision(e);*/
+	}
+	draw(e);
 }

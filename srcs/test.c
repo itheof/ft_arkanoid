@@ -60,6 +60,14 @@ void	ft_print_levels(t_lvl *lvl)
 	ft_print_levels(lvl->next);
 }
 
+void	ft_start_game(t_env *e)
+{
+	e->state = 1;
+	e->ball.pos_x = 0;
+	e->ball.pos_y = -0.8;
+	e->ball.tethered = 1;
+}
+
 int main(int ac, char **av)
 {
 	t_env	e;
@@ -80,12 +88,9 @@ int main(int ac, char **av)
 	}
 	glfwMakeContextCurrent(e.window);
 	init_hooks(&e);
-	e.state = 1;
-	e.list_pos = 0;
-	ft_singleton(&e);
+	ft_start_game(&e);
 	while (!glfwWindowShouldClose(e.window))
 	{
-		draw(&e);
 		rule_them_all(&e);
 		glfwSwapBuffers(e.window);
 		glfwPollEvents();

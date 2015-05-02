@@ -30,29 +30,35 @@ void	ft_down(t_env *e)
 
 void	ft_right(t_env *e)
 {
-	if (G_RUNNING)
-	{
-		e->pos_bar = (e->pos_bar < 0.92) ? e->pos_bar + 0.08 : 1;
-		/*
-		draw(e);
-		*/
-	}
+	if (e)
+	return ;
+	else
+	return ;
 }
 
 void	ft_left(t_env *e)
 {
-	if (G_RUNNING)
+	if (e)
 	{
-		e->pos_bar = (e->pos_bar > -0.92) ? e->pos_bar - 0.08 : -1;
-		/*
-		draw(e);
-		*/
+	 	return ;
 	}
+	else
+	return ;
 }
 
 void ft_enter(t_env *e)
 {
 	e = e;
+}
+
+void ft_space(t_env *e)
+{
+	if (G_RUNNING && e->ball.tethered)
+	{
+		e->ball.s_x = 0;
+		e->ball.tethered = 0;
+		e->ball.s_y = DEFAULT_SPEED;
+	}
 }
 
 void	key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -74,6 +80,9 @@ void	key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	else if (key == GLFW_KEY_ENTER && (action == GLFW_PRESS ||
 				action == GLFW_REPEAT))
 		ft_enter(ft_singleton(NULL));
+	else if (key == GLFW_KEY_SPACE && (action == GLFW_PRESS ||
+				action == GLFW_REPEAT))
+		ft_space(ft_singleton(NULL));
 	else
 		ft_putnbr(key);
 	ft_putchar(10);
