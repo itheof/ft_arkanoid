@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 07:00:28 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 19:15:04 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 20:53:22 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 void handle_bricks(t_env *e, t_collision col)
 {
 	int type;
+	t_lvl *l;
 
-	type = (e->lvl_list->lvl[col.tabIndexY][col.tabIndexX]);
+	l = get_level(e, e->lvl);
+	type = (l->lvl[col.tabIndexY][col.tabIndexX]);
 	if (type == NO_BLOCK)
 		return ;
 	if (type == BLOCK_MORTAL)
 	{
-		(e->lvl_list->lvl[col.tabIndexY][col.tabIndexX]) = NO_BLOCK;
+		(l->lvl[col.tabIndexY][col.tabIndexX]) = NO_BLOCK;
 		e->score += 10;
 	}
 	if (type >= 3)
 	{
-		(e->lvl_list->lvl[col.tabIndexY][col.tabIndexX]) -= 1;
+		(l->lvl[col.tabIndexY][col.tabIndexX]) -= 1;
 		e->score += 10;
 		if (type == 3)
-			(e->lvl_list->lvl[col.tabIndexY][col.tabIndexX]) = NO_BLOCK;
+			(l->lvl[col.tabIndexY][col.tabIndexX]) = NO_BLOCK;
 	}
 	if (col.ship_hit > 0.1 && col.ship_hit < 0.9)
 		e->ball.s_y *= -1;

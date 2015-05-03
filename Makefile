@@ -6,7 +6,7 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/03 20:24:04 by tvallee          ###   ########.fr        #
+#    Updated: 2015/05/03 20:37:45 by rcargou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,19 +41,19 @@ $(NAME): set_mac glfw/lib lib/lib/libglfw3.a libft/libft.a $(OBJ_DIR) $(OBJ)
 	@$(CC) -o $(NAME) $(CFLAGS) $(OBJ) $(INC) $(LIB) $(FW)
 	@echo "Done !"
 
-linux: init_sub build_glfw build_libft $(OBJ_DIR) $(OBJ)
+linux: lib/lib lib/lib/libglfw3.a libft/libft.a $(OBJ_DIR) $(OBJ)
 	@echo "Linkin'"
 	@env PKG_CONFIG_PATH=$(PWD)/lib/lib/pkgconfig $(CC) -o $(NAME)\
 		 $(CFLAGS) $(OBJ) $(INC) $(LIB) $(LIN_LINK)
 
-glfw/lib:
+lib/lib:
 	@git submodule init
 	@git submodule update
 
 set_mac:
 	@LIN_INC=
 
-lib/lib/glfw3.a:
+lib/lib/libglfw3.a:
 	@echo "Building GLFW"
 	@cd lib ; cmake -DCMAKE_INSTALL_PREFIX:PATH=$(PWD)/lib \
 		-BUILD_SHARED_LIBS=ON . ; make install

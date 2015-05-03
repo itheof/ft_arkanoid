@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 20:11:59 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 20:14:22 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 20:44:18 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ t_lvl	*get_level(t_env *e, int lvl)
 	t_lvl *list;
 
 	list = e->lvl_list;
-	while (--lvl)
+	while (lvl)
+	{
 		list = list->next;
+		lvl--;
+	}
 	return (list);
 }

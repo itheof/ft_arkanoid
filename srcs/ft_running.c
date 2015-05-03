@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 05:37:03 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 20:19:52 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 20:48:28 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ static int		level_completed(t_env *e)
 		{
 			if (lvl->lvl[i][j] == BLOCK_MORTAL || lvl->lvl[i][j] == BLOCK_HP)
 				return (0);
+			j++;
 		}
+		i++;
 	}
 	return (1);
 }
