@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 14:21:39 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 16:42:02 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 19:04:41 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,19 @@ void define_color(float *a, float *b, float *c, float va, float vb, float vc)
 
 static void get_color(int type, float *a, float *b, float *c)
 {
+	float ratio;
+
+	ratio = 1 / ((3.0f - (type - 3)) / 3);
 	if (type == NO_BLOCK)
 		define_color(a, b, c, 0, 0, 0);
 	else if (type == BLOCK_MORTAL)
 		define_color(a, b, c, 0, 0, 255);
 	else if (type == BLOCK_IMMORTAL)
-		define_color(a, b, c, 255, 255, 0);
+		define_color(a, b, c, 0.5, 0.5, 0.5);
 	else
-		define_color(a, b, c, 10, 0, 0);
+		define_color(a, b, c, ratio - 1, 0, 1.0f / ratio);
+	if (type >= 6)
+		define_color(a, b, c, 1 , 0, 0);
 }
 
 
@@ -78,10 +83,12 @@ static void draw_bar(t_env *e)
 		pos_x = 0.7;
 	else if (pos_x < -1)
 		pos_x = -1;
-	glVertex3f(e->ball.tethered ? 0 : pos_x , -0.8, 0);
-	glVertex3f(e->ball.tethered ? 0.1 : pos_x + 0.1, -0.8 - 0.07, 0);
-	glVertex3f(e->ball.tethered ? 0.2 : pos_x + 0.2, -0.8 - 0.07, 0);
-	glVertex3f(e->ball.tethered ? 0.2 + 0.1 : pos_x + 0.2 + 0.1, -0.8, 0);
+	if (e->ball.tethered)
+		pos_x = -0.25;
+	glVertex3f(pos_x , -0.8, 0);
+	glVertex3f(pos_x + 0.1, -0.8 - 0.07, 0);
+	glVertex3f(pos_x + 0.2, -0.8 - 0.07, 0);
+	glVertex3f(pos_x + 0.2 + 0.1, -0.8, 0);
 	glEnd();
 }
 

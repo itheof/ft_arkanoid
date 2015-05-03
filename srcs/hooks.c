@@ -6,20 +6,13 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 05:37:41 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 18:03:00 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 18:27:09 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arkanoid.h"
 
-
-
-void ft_enter(t_env *e)
-{
-	e = e;
-}
-
-void ft_space(t_env *e)
+void	ft_space(t_env *e)
 {
 	if (G_RUNNING && e->ball.tethered)
 	{
@@ -29,7 +22,8 @@ void ft_space(t_env *e)
 	}
 }
 
-void	key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+void	key_callback(GLFWwindow *window, int key, int scancode, int action,
+		int mods)
 {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GL_TRUE);

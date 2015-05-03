@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 07:24:55 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 16:16:04 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 18:29:44 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,15 @@ static t_lvl	*ft_parse_lvl(struct dirent *file, DIR *dir)
 		return (NULL);
 }
 
-void	load_levels(t_env *e, DIR *dir, struct dirent *dirent)
+void			clean_levels(t_env *e)
+{
+
+}
+
+void			load_levels(t_env *e, DIR *dir, struct dirent *dirent)
 {
 	if (e->lvl_list)
-		return;
-	/*
-		clean_levels(t_env *e);
-		*/
+		clean_levels(e);
 	e->lvl_list = ft_parse_lvl(dirent, dir);
 	closedir(dir);
 	ft_putendl("Levels loaded successfully ! =)");

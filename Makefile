@@ -6,11 +6,11 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/03 17:46:35 by tvallee          ###   ########.fr        #
+#    Updated: 2015/05/03 18:20:28 by tvallee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		=  check_levels.c init.c test.c ft_menu.c ft_running.c hooks.c \
+SRC		=  check_levels.c init.c test.c ft_running.c hooks.c \
 			load_level.c draw.c collision.c handle_collision.c \
 			change_title.c
 NAME	= arkanoid

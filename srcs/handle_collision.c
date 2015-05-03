@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 07:00:28 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 16:31:41 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 19:15:04 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,15 @@ void handle_bricks(t_env *e, t_collision col)
 	if (type == NO_BLOCK)
 		return ;
 	if (type == BLOCK_MORTAL)
+	{
 		(e->lvl_list->lvl[col.tabIndexY][col.tabIndexX]) = NO_BLOCK;
-	if (type > 3)
+		e->score += 10;
+	}
+	if (type >= 3)
 	{
 		(e->lvl_list->lvl[col.tabIndexY][col.tabIndexX]) -= 1;
-		if (type == 4)
+		e->score += 10;
+		if (type == 3)
 			(e->lvl_list->lvl[col.tabIndexY][col.tabIndexX]) = NO_BLOCK;
 	}
 	if (col.ship_hit > 0.1 && col.ship_hit < 0.9)
@@ -35,7 +39,7 @@ void handle_bricks(t_env *e, t_collision col)
 
 void handle_wall(t_env *e, t_collision col)
 {
-	if(col.wallSide == 1)
+	if (col.wallSide == 1)
 		e->ball.s_x = ABS(e->ball.s_x);
 	if (col.wallSide == 2)
 		e->ball.s_y = -ABS(e->ball.s_y);
@@ -50,7 +54,7 @@ void handle_raq(t_env *env, t_collision col)
 	env->ball.s_x *= 0;
 	if (col.ship_hit >= 0.5)
 		env->ball.s_x += fabs(col.ship_hit - 0.5) / 20;
-	else 
+	else
 		env->ball.s_x -= fabs(col.ship_hit - 0.5) / 20;
 	env->ball.s_y = fabs(env->ball.s_y);
 }
