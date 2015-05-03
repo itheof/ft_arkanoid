@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 23:12:00 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 23:16:46 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void					ft_enter(t_env *e);
 
 void					load_levels(t_env *e, DIR *dir, struct dirent *dirent);
 
-void					define_color(float *a, float *b, float *c, float va,
+void					define_color(float *a, float *c, float va,
 		float vc);
 
 int						collision(t_collision *collision, t_env *e);
