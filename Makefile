@@ -6,12 +6,12 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/02 17:10:33 by rcargou          ###   ########.fr        #
+#    Updated: 2015/05/03 07:20:44 by rcargou          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC		=  check_levels.c init.c test.c ft_menu.c ft_running.c hooks.c \
-			load_level.c draw.c
+			load_level.c draw.c collision.c handle_collision.c
 NAME	= ft_arkanoid
 CC		= gcc
 CFLssAGS	= -Wall -Wextra -Werror -pedantic -Wshadow -Wno-missing-noreturn\

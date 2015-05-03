@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 05:37:41 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 15:49:12 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 06:39:39 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_up(t_env *e)
 {
+	e->ball.pos_y += 0.01;
 	if (e)
 		return;
 	else
@@ -22,6 +23,7 @@ void	ft_up(t_env *e)
 
 void	ft_down(t_env *e)
 {
+	e->ball.pos_y -= 0.01;
 	if (e)
 		return ;
 	else
@@ -30,6 +32,7 @@ void	ft_down(t_env *e)
 
 void	ft_right(t_env *e)
 {
+	e->ball.pos_x += 0.01;
 	if (e)
 	return ;
 	else
@@ -38,6 +41,7 @@ void	ft_right(t_env *e)
 
 void	ft_left(t_env *e)
 {
+	e->ball.pos_x -= 0.01;
 	if (e)
 	{
 	 	return ;

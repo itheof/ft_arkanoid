@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 14:21:39 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/02 19:14:40 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 06:50:39 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ c = 0;
 	if (j > 4)
 		return ;
 	//printf("i: %d, j: %d\n", (int)i, (int)j);
-//	get_color((e->lvl_list->lvl)[(int)j][(int)i], &a, &b, &c);
+	get_color((e->lvl_list->lvl)[(int)j][(int)i], &a, &b, &c);
 	glBegin(GL_QUADS);
 	glColor3f(a, b, c);
 	glVertex3f(i * 2 / 20 - 0.9 + (i + 1) * 0.05,

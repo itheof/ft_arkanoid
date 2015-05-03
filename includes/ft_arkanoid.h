@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 15:48:21 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 08:31:43 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ enum {
 	BLOCK_IMMORTAL,
 	BLOCK_HP
 };
+
+typedef struct			s_collision {
+
+	int					which;
+	int					wallSide;
+	int					tabIndexX;
+	int					tabIndexY;
+	double				ship_hit;
+}						t_collision;
 
 typedef struct			s_lvl
 {
@@ -92,5 +101,9 @@ void					ft_enter(t_env *e);
 void					load_levels(t_env *e, DIR *dir, struct dirent *dirent);
 
 void					define_color(float *a, float *b, float *c, float va, float vb, float vc);
+
+int						collision(t_collision *collision, t_env *e);
+
+void					handle_collision(t_env *e, t_collision col);
 
 #endif

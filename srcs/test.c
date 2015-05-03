@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:23:54 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 17:10:53 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 08:32:42 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_print_levels(t_lvl *lvl)
 void	ft_start_game(t_env *e)
 {
 	e->state = 1;
-	e->ball.pos_x = 0;
+	e->ball.pos_x = -0.1;
 	e->ball.pos_y = -0.8;
 	e->ball.tethered = 1;
 }

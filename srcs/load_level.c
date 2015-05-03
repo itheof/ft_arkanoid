@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 07:24:55 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 14:43:42 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 06:57:10 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,25 +58,23 @@ static t_lvl	*ft_parse_lvl(struct dirent *file, DIR *dir)
 	int		fd;
 	char	*temp;
 
-	if (file && *(file->d_name) != '.')
+	if (file)
 	{
-		temp = ft_strjoin(ft_singleton(NULL)->lvl_dir, ft_strjoin(
-					"/", file->d_name, 0), 2);
-		if ((fd = open(temp, O_RDONLY)) < 1)
+		if (file->d_name[0] != '.')
 		{
+			temp = ft_strjoin(ft_singleton(NULL)->lvl_dir, ft_strjoin(
+						"/", file->d_name, 0), 2);
+			if ((fd = open(temp, O_RDONLY)) < 1)
+				free(temp);
 			free(temp);
-			ft_putendl("Error while loading levels");
-			/*
-			ft_exit(ft_singleton(NULL));
-			*/
+			new = malloc(sizeof(*new));
+			new->lvl = get_tab(fd, NULL);
+			close(fd);
+			new->next = ft_parse_lvl(readdir(dir), dir);
+			return (new);
 		}
-		free(temp);
-		new = malloc(sizeof(*new));
-/*    ADD HERE LEVEL PARAMETERS    */
-		new->lvl = get_tab(fd, NULL);
-		close(fd);
-		new->next = ft_parse_lvl(readdir(dir), dir);
-		return (new);
+		else
+			new = ft_parse_lvl(readdir(dir), dir);
 	}
 	else
 		return (NULL);
