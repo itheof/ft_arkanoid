@@ -6,35 +6,21 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 14:21:39 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 22:32:22 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:50:47 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arkanoid.h"
 
-void			define_color(float *a, float *b, float *c, float va, float vb,
-		float vc)
+void tij(float *i, float *j)
 {
-	*a = va;
-	*b = vb;
-	*c = vc;
-}
-
-static void		get_color(int type, float *a, float *b, float *c)
-{
-	float ratio;
-
-	ratio = 1 / ((3.0f - (type - 3)) / 3);
-	if (type == NO_BLOCK)
-		define_color(a, b, c, 0, 0, 0);
-	else if (type == BLOCK_MORTAL)
-		define_color(a, b, c, 0, 0, 255);
-	else if (type == BLOCK_IMMORTAL)
-		define_color(a, b, c, 0.5, 0.5, 0.5);
+	if (*i > 9)
+	{
+		*i = 0;
+		(*j)++;
+	}
 	else
-		define_color(a, b, c, ratio - 1, 0, 1.0f / ratio);
-	if (type >= 6)
-		define_color(a, b, c, 1 , 0, 0);
+		(*i)++;
 }
 
 static void		draw_rectangle(float i, float j, t_env *e)
@@ -44,9 +30,6 @@ static void		draw_rectangle(float i, float j, t_env *e)
 	float	c;
 	t_lvl	*lvl;
 
-	a = 255;
-	b = 0;
-	c = 0;
 	if (j > 4)
 		return ;
 	lvl = get_level(e, e->lvl);
@@ -62,13 +45,7 @@ static void		draw_rectangle(float i, float j, t_env *e)
 	glVertex3f(i * 2 / 20 - 0.9 + 0.1 + (i + 1) * 0.05,
 		(j * 2 / 10 - 1 + (j + 1) * 0.025) * -1, 0);
 		glEnd();
-	if (i > 9)
-	{
-		i = 0;
-		j++;
-	}
-	else
-		i++;
+	tij(&i, &j);
 	draw_rectangle(i, j, e);
 }
 
@@ -99,7 +76,7 @@ static void		draw_bar(t_env *e)
 
 static void		draw_ball(float i, float j)
 {
-	float degInRad;
+	float deginrad;
 	float radius;
 	int e;
 
@@ -111,8 +88,8 @@ static void		draw_ball(float i, float j)
 		while (e < 360)
 		{
 			glColor3f(0, 1 - (radius * 70), radius * 60);
-			degInRad = e*3.14159/180;
-			glVertex2f(i + cos(degInRad)*radius, j + sin(degInRad)*radius);
+			deginrad = e*3.14159/180;
+			glVertex2f(i + cos(deginrad)*radius, j + sin(deginrad)*radius);
 			e++;
 		}
 		radius -= 0.001;

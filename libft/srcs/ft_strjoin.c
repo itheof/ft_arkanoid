@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 22:20:05 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 22:21:15 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:59:54 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ char		*ft_strjoin(char const *s1, char const *s2, int nb)
 	int		i;
 	int		j;
 
-	if (!(r = NULL) && s1 && s2)
+	r = NULL;
+	if (!(i = 0) && s1 && s2)
 	{
 		r = ft_memalloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 		if (r && (j = 0) == 0)
