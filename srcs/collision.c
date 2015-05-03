@@ -47,7 +47,11 @@ int collision_raq(t_collision *collision,t_env *e)
 	double pos_y;
 
 	glfwGetCursorPos(e->window, &pos_x, &pos_y);
-	pos_x = (pos_x - WINX / 2) / (WINX / 2);
+	pos_x = (pos_x - WINX / 2) / (WINX / 2) - 0.15;
+	if (pos_x > 0.7)
+		pos_x = 0.7;
+	else if (pos_x < -1)
+		pos_x = -1;
 	pos_y = 0.8;
 	if (e->ball.pos_x > pos_x && e->ball.pos_x < pos_x + 0.3
 		&& pos_y * -1 >= e->ball.pos_y && pos_y * -1 <= e->ball.pos_y + 0.1)

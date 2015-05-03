@@ -80,7 +80,7 @@ int main(int ac, char **av)
 		return (-1);
 	ft_print_levels(e.lvl_list);
 	
-	e.window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+	e.window = glfwCreateWindow(WINX, WINY, "Senpai, this will never fit !!", NULL, NULL);
 	if (!e.window)
 	{
 		glfwTerminate();

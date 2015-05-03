@@ -43,7 +43,6 @@ b = 0;
 c = 0;
 	if (j > 4)
 		return ;
-	//printf("i: %d, j: %d\n", (int)i, (int)j);
 	get_color((e->lvl_list->lvl)[(int)j][(int)i], &a, &b, &c);
 	glBegin(GL_QUADS);
 	glColor3f(a, b, c);
@@ -74,7 +73,11 @@ static void draw_bar(t_env *e)
 	glfwGetCursorPos(e->window, &pos_x, &pos_y);
 	glBegin(GL_QUADS);
 	glColor3f(1, 1, 1);
-	pos_x  = (pos_x - WINX / 2 - 0.3) / (WINX / 2);
+	pos_x  = (pos_x - WINX / 2) / (WINX / 2) - 0.15;
+	if (pos_x > 0.7)
+		pos_x = 0.7;
+	else if (pos_x < -1)
+		pos_x = -1;
 	glVertex3f(e->ball.tethered ? 0 : pos_x , -0.8, 0);
 	glVertex3f(e->ball.tethered ? 0.1 : pos_x + 0.1, -0.8 - 0.07, 0);
 	glVertex3f(e->ball.tethered ? 0.2 : pos_x + 0.2, -0.8 - 0.07, 0);

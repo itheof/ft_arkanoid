@@ -12,7 +12,7 @@
 
 SRC		=  check_levels.c init.c test.c ft_menu.c ft_running.c hooks.c \
 			load_level.c draw.c collision.c handle_collision.c
-NAME	= ft_arkanoid
+NAME	= arkanoid
 CC		= gcc
 CFLssAGS	= -Wall -Wextra -Werror -pedantic -Wshadow -Wno-missing-noreturn\
 		  -Wno-padded -Wno-unreachable-code -Wredundant-decls -g\
@@ -37,12 +37,12 @@ all: $(NAME)
 
 $(NAME): set_mac init_sub build_glfw build_libft $(OBJ_DIR) $(OBJ)
 	@echo "Linkin'"
-	@$(CC) $(CFLAGS) $(OBJ) $(INC) $(LIB) $(FW)
+	@$(CC) -o $(NAME) $(CFLAGS) $(OBJ) $(INC) $(LIB) $(FW)
 	@echo "Done !"
 
 linux: init_sub build_glfw build_libft $(OBJ_DIR) $(OBJ)
 	@echo "Linkin'"
-	@env PKG_CONFIG_PATH=$(PWD)/lib/lib/pkgconfig $(CC) \
+	@env PKG_CONFIG_PATH=$(PWD)/lib/lib/pkgconfig $(CC) -o $(NAME)\
 		 $(CFLAGS) $(OBJ) $(INC) $(LIB) $(LIN_LINK)
 
 init_sub:

@@ -1,8 +1,0 @@
-typedef struct s_collision {
-
-int wich;
-int wallSide;
-int tabIndexX;
-int tabIndexY;
-
-} t_collision
