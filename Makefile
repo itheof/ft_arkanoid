@@ -6,13 +6,13 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/03 18:20:28 by tvallee          ###   ########.fr        #
+#    Updated: 2015/05/03 20:24:04 by tvallee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC		=  check_levels.c init.c test.c ft_running.c hooks.c \
 			load_level.c draw.c collision.c handle_collision.c \
-			change_title.c
+			change_title.c get_level.c ft_exit.c
 NAME	= arkanoid
 CC		= gcc
 CFLssAGS	= -Wall -Wextra -Werror -pedantic -Wshadow -Wno-missing-noreturn\
@@ -34,9 +34,9 @@ LIN_LINK	= -I$(PWD)/lib/include -I/usr/include/libdrm -L$(PWD)/lib/lib \
 			  -lXxf86vm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp
 LIN_INC		= -I$(PWD)/lib/include -I/usr/include/drm
 
-all: lib/lib/libglfw3.a $(NAME)
+all: $(NAME)
 
-$(NAME): set_mac init_sub build_glfw build_libft $(OBJ_DIR) $(OBJ)
+$(NAME): set_mac glfw/lib lib/lib/libglfw3.a libft/libft.a $(OBJ_DIR) $(OBJ)
 	@echo "Linkin'"
 	@$(CC) -o $(NAME) $(CFLAGS) $(OBJ) $(INC) $(LIB) $(FW)
 	@echo "Done !"
@@ -46,19 +46,19 @@ linux: init_sub build_glfw build_libft $(OBJ_DIR) $(OBJ)
 	@env PKG_CONFIG_PATH=$(PWD)/lib/lib/pkgconfig $(CC) -o $(NAME)\
 		 $(CFLAGS) $(OBJ) $(INC) $(LIB) $(LIN_LINK)
 
-init_sub:
+glfw/lib:
 	@git submodule init
 	@git submodule update
 
 set_mac:
 	@LIN_INC=
 
-build_glfw:
+lib/lib/glfw3.a:
 	@echo "Building GLFW"
 	@cd lib ; cmake -DCMAKE_INSTALL_PREFIX:PATH=$(PWD)/lib \
 		-BUILD_SHARED_LIBS=ON . ; make install
 
-build_libft:
+libft/libft.a:
 	@echo "Building Libft"
 	@make -C libft
 
@@ -71,10 +71,12 @@ $(OBJ_DIR):
 
 clean:
 	@echo "Deleting obj files."
+	@make -C libft clean
+	@make -C lib clean
 	@rm -f $(OBJ)
 
 fclean: clean
-	@echo "Deleting archive library."
+	@echo "Deleting executable."
 	@rm -f $(NAME)
 
 re: fclean all

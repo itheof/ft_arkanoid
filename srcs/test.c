@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:23:54 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 18:34:05 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 20:22:24 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,6 @@ t_env	*ft_singleton(t_env *e)
 	if (e)
 		save = e;
 	return (save);
-}
-
-void	ft_print_levels(t_lvl *lvl)
-{
-	int i;
-	int j;
-	int	**tab;
-
-	if (!lvl)
-		return ;
-	tab = lvl->lvl;
-	i = 0;
-	j = 0;
-	ft_putchar(10);
-	while (tab[i])
-	{
-		j = 0;
-		while (tab[i][j])
-		{
-			ft_putnbr(tab[i][j]);
-			ft_putchar(' ');
-			j++;
-		}
-		ft_putchar(10);
-		i++;
-	}
-	ft_print_levels(lvl->next);
 }
 
 void	ft_start_game(t_env *e)

@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 18:01:11 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 20:23:07 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,7 @@ void					handle_collision(t_env *e, t_collision col);
 
 void					change_title(t_env *e);
 void					ft_start_game(t_env *e);
+t_lvl					*get_level(t_env *e, int lvl);
+
 
 #endif

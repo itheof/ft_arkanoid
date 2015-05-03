@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 14:21:39 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 19:45:29 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 20:21:56 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,18 @@ static void get_color(int type, float *a, float *b, float *c)
 
 static void draw_rectangle(float i, float j, t_env *e)
 {
-	float a;
-	float b;
-	float c;
+	float	a;
+	float	b;
+	float	c;
+	t_lvl	*lvl;
 
 	a = 255;
 	b = 0;
 	c = 0;
 	if (j > 4)
 		return ;
-	get_color((e->lvl_list->lvl)[(int)j][(int)i], &a, &b, &c);
+	lvl = get_level(e, e->lvl);
+	get_color((lvl->lvl)[(int)j][(int)i], &a, &b, &c);
 	glBegin(GL_QUADS);
 	glColor3f(a, b, c);
 	glVertex3f(i * 2 / 20 - 0.9 + (i + 1) * 0.05,
