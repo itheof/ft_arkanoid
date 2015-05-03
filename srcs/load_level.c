@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 07:24:55 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 18:29:44 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 19:39:00 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ static int		*ft_toline(char **tab)
 	res = ft_memalloc(sizeof(int) * (ft_tablen((void **)tab) + 1));
 	while (tab[i])
 	{
-		res[i] = ft_atoi(tab[i]);
+		res[i] = ft_atoi(tab[i]) > 0 ? ft_atoi(tab[i]) : 0;
+		if (res[i] > 6)
+			res[i] = 6;
 		free(tab[i++]);
 	}
 	free(tab);

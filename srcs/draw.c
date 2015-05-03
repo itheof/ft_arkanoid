@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 14:21:39 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 19:04:41 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 19:45:29 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static void get_color(int type, float *a, float *b, float *c)
 	if (type >= 6)
 		define_color(a, b, c, 1 , 0, 0);
 }
-
 
 static void draw_rectangle(float i, float j, t_env *e)
 {
@@ -77,7 +76,7 @@ static void draw_bar(t_env *e)
 
 	glfwGetCursorPos(e->window, &pos_x, &pos_y);
 	glBegin(GL_QUADS);
-	glColor3f(1, 1, 1);
+	glColor3f(1, 1, 0);
 	pos_x  = (pos_x - WINX / 2) / (WINX / 2) - 0.15;
 	if (pos_x > 0.7)
 		pos_x = 0.7;
@@ -86,8 +85,11 @@ static void draw_bar(t_env *e)
 	if (e->ball.tethered)
 		pos_x = -0.25;
 	glVertex3f(pos_x , -0.8, 0);
+	glColor3f(1, 0, 0);
 	glVertex3f(pos_x + 0.1, -0.8 - 0.07, 0);
+	glColor3f(0, 0, 1);
 	glVertex3f(pos_x + 0.2, -0.8 - 0.07, 0);
+	glColor3f(0, 1, 0);
 	glVertex3f(pos_x + 0.2 + 0.1, -0.8, 0);
 	glEnd();
 }
@@ -105,6 +107,7 @@ static void draw_ball(float i, float j)
 		e = 0;
 		while (e < 360)
 		{
+			glColor3f(0, 1 - (radius * 70), radius * 60);
 			degInRad = e*3.14159/180;
 			glVertex2f(i + cos(degInRad)*radius, j + sin(degInRad)*radius);
 			e++;
