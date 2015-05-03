@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 23:05:56 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 23:12:00 by rcargou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void					ft_enter(t_env *e);
 void					load_levels(t_env *e, DIR *dir, struct dirent *dirent);
 
 void					define_color(float *a, float *b, float *c, float va,
-		float vb, float vc);
+		float vc);
 
 int						collision(t_collision *collision, t_env *e);
 
@@ -114,5 +114,7 @@ void					handle_collision(t_env *e, t_collision col);
 void					change_title(t_env *e);
 void					ft_start_game(t_env *e);
 t_lvl					*get_level(t_env *e, int lvl);
+
+void					get_color(int type, float *a, float *b, float *c);
 
 #endif
