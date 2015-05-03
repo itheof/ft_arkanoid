@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:23:54 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 20:22:24 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 21:23:14 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		main(int ac, char **av)
 	if (!check_levels(ac, av, &e) || !glfwInit())
 		return (-1);
 	e.maxscore = 0;
-	e.lvl = 0;
+	e.lvl = 3;
 	e.window = glfwCreateWindow(WINX, WINY, "Arkanoid", NULL, NULL);
 	if (!e.window)
 	{

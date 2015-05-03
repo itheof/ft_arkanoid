@@ -6,7 +6,7 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/03 20:37:45 by rcargou          ###   ########.fr        #
+#    Updated: 2015/05/03 21:07:17 by tvallee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ LIN_INC		= -I$(PWD)/lib/include -I/usr/include/drm
 
 all: $(NAME)
 
-$(NAME): set_mac glfw/lib lib/lib/libglfw3.a libft/libft.a $(OBJ_DIR) $(OBJ)
+$(NAME): set_mac lib/lib lib/lib/libglfw3.a libft/libft.a $(OBJ_DIR) $(OBJ)
 	@echo "Linkin'"
 	@$(CC) -o $(NAME) $(CFLAGS) $(OBJ) $(INC) $(LIB) $(FW)
 	@echo "Done !"
