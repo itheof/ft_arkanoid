@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 17:45:15 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 17:56:44 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:24:42 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	render_score_int(char buffer[1024], int value)
 	free(tmp);
 }
 
-static int ft_lvllen(t_lvl *list)
+static int	ft_lvllen(t_lvl *list)
 {
 	int i;
 
@@ -34,7 +34,7 @@ static int ft_lvllen(t_lvl *list)
 	return (i);
 }
 
-void	change_title(t_env *e)
+void		change_title(t_env *e)
 {
 	char buffer[1024];
 

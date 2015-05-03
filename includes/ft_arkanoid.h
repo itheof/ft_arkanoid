@@ -6,12 +6,12 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 20:23:07 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:31:38 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ARKANOID
-# define FT_ARKANOID
+#ifndef FT_ARKANOID_H
+# define FT_ARKANOID_H
 
 # include <sys/types.h>
 # include <dirent.h>
@@ -27,8 +27,8 @@
 # define DEFAULT_SPEED 0.025
 # define ABS(x) (x > 0 ? x : -x)
 
-#define WINX 900
-#define WINY 700
+# define WINX 900
+# define WINY 700
 
 enum {
 	NO_BLOCK,
@@ -40,9 +40,9 @@ enum {
 typedef struct			s_collision {
 
 	int					which;
-	int					wallSide;
-	int					tabIndexX;
-	int					tabIndexY;
+	int					wallside;
+	int					tabindexx;
+	int					tabindexy;
 	double				ship_hit;
 }						t_collision;
 
@@ -85,7 +85,7 @@ void					ft_gameover(t_env *e);
 
 void					ft_exit(t_env *e);
 
-void					key_callback(GLFWwindow* window, int key, int scancode,
+void					key_callback(GLFWwindow *window, int key, int scancode,
 							int action, int mods);
 
 void					rule_them_all(t_env *e);
@@ -104,7 +104,8 @@ void					ft_enter(t_env *e);
 
 void					load_levels(t_env *e, DIR *dir, struct dirent *dirent);
 
-void					define_color(float *a, float *b, float *c, float va, float vb, float vc);
+void					define_color(float *a, float *b, float *c, float va,
+		float vb, float vc);
 
 int						collision(t_collision *collision, t_env *e);
 
@@ -113,6 +114,5 @@ void					handle_collision(t_env *e, t_collision col);
 void					change_title(t_env *e);
 void					ft_start_game(t_env *e);
 t_lvl					*get_level(t_env *e, int lvl);
-
 
 #endif

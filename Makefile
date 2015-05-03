@@ -6,18 +6,16 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/03 21:07:17 by tvallee          ###   ########.fr        #
+#    Updated: 2015/05/03 22:03:25 by tvallee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC		=  check_levels.c init.c test.c ft_running.c hooks.c \
 			load_level.c draw.c collision.c handle_collision.c \
-			change_title.c get_level.c ft_exit.c
+			change_title.c get_level.c
 NAME	= arkanoid
 CC		= gcc
-CFLssAGS	= -Wall -Wextra -Werror -pedantic -Wshadow -Wno-missing-noreturn\
-		  -Wno-padded -Wno-unreachable-code -Wredundant-decls -g\
-		  -Wmissing-declarations
+CFLAGS	= -Wall -Wextra -Werror
 SRC_DIR	= srcs
 VPATH	= $(SRC_DIR)
 INC		= -I./includes -I./libft/includes -I./lib/include/GLFW

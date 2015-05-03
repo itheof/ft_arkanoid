@@ -5,9 +5,9 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/05 12:09:05 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/02 01:12:48 by tvallee          ###   ########.fr       */
-/*   ## nb specifes input strings to free, 3 = both, 0 = none                 */
+/*   Created: 2015/05/03 22:20:05 by tvallee           #+#    #+#             */
+/*   Updated: 2015/05/03 22:21:15 by tvallee          ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
@@ -32,13 +32,11 @@ char		*ft_strjoin(char const *s1, char const *s2, int nb)
 	int		i;
 	int		j;
 
-	r = NULL;
-	if (s1 && s2)
+	if (!(r = NULL) && s1 && s2)
 	{
 		r = ft_memalloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 		if (r && (j = 0) == 0)
 		{
-			i = 0;
 			while (s1[i])
 			{
 				r[i] = s1[i];

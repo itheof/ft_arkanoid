@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 11:00:31 by tvallee           #+#    #+#             */
-/*   Updated: 2015/03/16 04:52:00 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:13:27 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *s1);
-char                *ft_strndup(const char *s1, size_t n);
+char				*ft_strndup(const char *s1, size_t n);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t n);
 char				*ft_strcat(char *s1, const char *s2);
@@ -67,7 +67,7 @@ int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
-int                 ft_isspace(int c);
+int					ft_isspace(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
@@ -86,10 +86,10 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2, int nb);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
-char                **ft_strsplit_whitespaces(char const *str);
+char				**ft_strsplit_whitespaces(char const *str);
 char				*ft_itoa(int n);
 void				ft_putchar(char c);
-int 				ft_putstr(char const *s);
+int					ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putendlfree_fd(char *s, int fd);
 void				ft_putnbr(int n);
@@ -111,12 +111,11 @@ int					**ft_strlsttoitab(t_list *lst, int destroy);
 int					*ft_atabtoistr(char **tab);
 int					ft_lstremove(t_list **list, t_list *elem, int i);
 
-
 int					ft_freetab(void **tab);
-size_t              ft_tablen(void **tab);
-t_list              *ft_tabtolst(void **data);
-void                **ft_tablineadd(void *line, void **tab);
-void                **ft_tablinedel(void *line, void **tab);
+size_t				ft_tablen(void **tab);
+t_list				*ft_tabtolst(void **data);
+void				**ft_tablineadd(void *line, void **tab);
+void				**ft_tablinedel(void *line, void **tab);
 
 int					get_next_line(int const fd, char **line);
 #endif

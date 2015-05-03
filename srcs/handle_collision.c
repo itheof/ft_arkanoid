@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 07:00:28 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 20:53:22 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:26:34 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void handle_bricks(t_env *e, t_collision col)
 {
-	int type;
-	t_lvl *l;
+	int		type;
+	t_lvl	*l;
 
 	l = get_level(e, e->lvl);
 	type = (l->lvl[col.tabIndexY][col.tabIndexX]);

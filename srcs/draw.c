@@ -6,20 +6,21 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 14:21:39 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 20:21:56 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:32:22 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arkanoid.h"
 
-void define_color(float *a, float *b, float *c, float va, float vb, float vc)
+void			define_color(float *a, float *b, float *c, float va, float vb,
+		float vc)
 {
 	*a = va;
 	*b = vb;
 	*c = vc;
 }
 
-static void get_color(int type, float *a, float *b, float *c)
+static void		get_color(int type, float *a, float *b, float *c)
 {
 	float ratio;
 
@@ -36,7 +37,7 @@ static void get_color(int type, float *a, float *b, float *c)
 		define_color(a, b, c, 1 , 0, 0);
 }
 
-static void draw_rectangle(float i, float j, t_env *e)
+static void		draw_rectangle(float i, float j, t_env *e)
 {
 	float	a;
 	float	b;
@@ -71,7 +72,7 @@ static void draw_rectangle(float i, float j, t_env *e)
 	draw_rectangle(i, j, e);
 }
 
-static void draw_bar(t_env *e)
+static void		draw_bar(t_env *e)
 {
 	double pos_x;
 	double pos_y;
@@ -96,7 +97,7 @@ static void draw_bar(t_env *e)
 	glEnd();
 }
 
-static void draw_ball(float i, float j)
+static void		draw_ball(float i, float j)
 {
 	float degInRad;
 	float radius;
@@ -119,7 +120,7 @@ static void draw_ball(float i, float j)
 	glEnd();
 }
 
-void draw(t_env *e)
+void			draw(t_env *e)
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glLoadIdentity();

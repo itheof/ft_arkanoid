@@ -6,20 +6,20 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:23:54 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 21:23:14 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:27:12 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_arkanoid.h"
 
-void	rule_them_all(t_env *e)
+void		rule_them_all(t_env *e)
 {
 	if (G_RUNNING)
 		ft_running(e);
 	change_title(e);
 }
 
-t_env	*ft_singleton(t_env *e)
+t_env		*ft_singleton(t_env *e)
 {
 	static t_env *save = NULL;
 
@@ -28,7 +28,7 @@ t_env	*ft_singleton(t_env *e)
 	return (save);
 }
 
-void	ft_start_game(t_env *e)
+void		ft_start_game(t_env *e)
 {
 	e->score = 0;
 	e->state = 1;
@@ -37,7 +37,14 @@ void	ft_start_game(t_env *e)
 	e->ball.tethered = 1;
 }
 
-int		main(int ac, char **av)
+static void	ft_put(t_env e)
+{
+	ft_putstr("High score: ");
+	ft_putnbr(e.score);
+	ft_putchar(10);
+}
+
+int			main(int ac, char **av)
 {
 	t_env	e;
 
@@ -46,7 +53,7 @@ int		main(int ac, char **av)
 	if (!check_levels(ac, av, &e) || !glfwInit())
 		return (-1);
 	e.maxscore = 0;
-	e.lvl = 3;
+	e.lvl = 0;
 	e.window = glfwCreateWindow(WINX, WINY, "Arkanoid", NULL, NULL);
 	if (!e.window)
 	{
@@ -56,11 +63,12 @@ int		main(int ac, char **av)
 	glfwMakeContextCurrent(e.window);
 	init_hooks(&e);
 	ft_start_game(&e);
-	while (!glfwWindowShouldClose(e.window))
+	while (!glfwWindowShouldClose(e.window) && e.state)
 	{
 		rule_them_all(&e);
 		glfwPollEvents();
 	}
 	glfwTerminate();
+	ft_put(e);
 	return (0);
 }

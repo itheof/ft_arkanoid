@@ -1,0 +1,27 @@
+Norme: srcs/change_title.c
+Norme: srcs/check_levels.c
+Norme: srcs/collision.c
+Norme: srcs/draw.c
+Error: 6 functions in the file
+Error (line 15): define_color have 6 parameters
+Error (line 37, col 26): space before ,
+Error (line 40): function draw_rectangle has 31 lines
+Error (line 59, col 17): bad spacing
+Error (line 61, col 46): space after negative
+Error (line 64): bad indentation
+Error (line 83, col 6): bad spacing
+Error (line 90, col 18): space before ,
+Error (line 100): declarations in draw_ball are bad aligned
+Error (line 102, col 7): degInRad not unixcase
+Error (line 114, col 15): missing space around *
+Error (line 114, col 23): missing space around /
+Error (line 115, col 31): missing space around *
+Error (line 115, col 57): missing space around *
+Norme: srcs/ft_running.c
+Norme: srcs/get_level.c
+Norme: srcs/handle_collision.c
+Norme: srcs/hooks.c
+Error (line 25): key_callback have 5 parameters
+Norme: srcs/init.c
+Norme: srcs/load_level.c
+Norme: srcs/test.c
