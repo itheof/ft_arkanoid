@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 20:23:55 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 22:25:12 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:37:26 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int collision_bricks(t_collision *collision, t_env *e, double i)
 					posbricky + 0.12)
 			{
 				collision->which = 0;
-				collision->tabIndexX = i;
-				collision->tabIndexY = j;
+				collision->tabindexx = i;
+				collision->tabindexy = j;
 				collision->ship_hit = (e->ball.pos_x - posbrickx) / 0.1;
 				return (1);
 			}
@@ -67,22 +67,22 @@ int collision(t_collision *collision, t_env *e)
 	if (e->ball.pos_x >= 1)
 	{
 		collision->which = 1;
-		collision->wallSide = 3;
+		collision->wallside = 3;
 	}
 	else if (e->ball.pos_x <= -1)
 	{
 		collision->which = 1;
-		collision->wallSide = 1;
+		collision->wallside = 1;
 	}
 	else if (e->ball.pos_y >= 1)
 	{
 		collision->which = 1;
-		collision->wallSide = 2;
+		collision->wallside = 2;
 	}
 	else if (e->ball.pos_y <= -1)
 	{
 		collision->which = 1;
-		collision->wallSide = 0;
+		collision->wallside = 0;
 	}
 	else if (collision_raq(collision, e))
 		;

@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 07:00:28 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 22:26:34 by tvallee          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:39:03 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ void handle_bricks(t_env *e, t_collision col)
 	t_lvl	*l;
 
 	l = get_level(e, e->lvl);
-	type = (l->lvl[col.tabIndexY][col.tabIndexX]);
+	type = (l->lvl[col.tabindexy][col.tabindexx]);
 	if (type == NO_BLOCK)
 		return ;
 	if (type == BLOCK_MORTAL)
 	{
-		(l->lvl[col.tabIndexY][col.tabIndexX]) = NO_BLOCK;
+		(l->lvl[col.tabindexy][col.tabindexx]) = NO_BLOCK;
 		e->score += 10;
 	}
 	if (type >= 3)
 	{
-		(l->lvl[col.tabIndexY][col.tabIndexX]) -= 1;
+		(l->lvl[col.tabindexy][col.tabindexx]) -= 1;
 		e->score += 10;
 		if (type == 3)
-			(l->lvl[col.tabIndexY][col.tabIndexX]) = NO_BLOCK;
+			(l->lvl[col.tabindexy][col.tabindexx]) = NO_BLOCK;
 	}
 	if (col.ship_hit > 0.1 && col.ship_hit < 0.9)
 		e->ball.s_y *= -1;
@@ -41,13 +41,13 @@ void handle_bricks(t_env *e, t_collision col)
 
 void handle_wall(t_env *e, t_collision col)
 {
-	if (col.wallSide == 1)
+	if (col.wallside == 1)
 		e->ball.s_x = ABS(e->ball.s_x);
-	if (col.wallSide == 2)
+	if (col.wallside == 2)
 		e->ball.s_y = -ABS(e->ball.s_y);
-	if (col.wallSide == 3)
+	if (col.wallside == 3)
 		e->ball.s_x = -ABS(e->ball.s_x);
-	if (!col.wallSide)
+	if (!col.wallside)
 		ft_start_game(e);
 }
 
