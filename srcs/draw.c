@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 14:21:39 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 06:50:39 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 16:42:02 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static void draw_rectangle(float i, float j, t_env *e)
 	float c;
 
 	a = 255;
-b = 0;
-c = 0;
+	b = 0;
+	c = 0;
 	if (j > 4)
 		return ;
 	get_color((e->lvl_list->lvl)[(int)j][(int)i], &a, &b, &c);

@@ -6,12 +6,13 @@
 #    By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/10 14:41:44 by tvallee           #+#    #+#              #
-#    Updated: 2015/05/03 07:20:44 by rcargou          ###   ########.fr        #
+#    Updated: 2015/05/03 17:46:35 by tvallee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC		=  check_levels.c init.c test.c ft_menu.c ft_running.c hooks.c \
-			load_level.c draw.c collision.c handle_collision.c
+			load_level.c draw.c collision.c handle_collision.c \
+			change_title.c
 NAME	= arkanoid
 CC		= gcc
 CFLssAGS	= -Wall -Wextra -Werror -pedantic -Wshadow -Wno-missing-noreturn\
@@ -33,7 +34,7 @@ LIN_LINK	= -I$(PWD)/lib/include -I/usr/include/libdrm -L$(PWD)/lib/lib \
 			  -lXxf86vm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp
 LIN_INC		= -I$(PWD)/lib/include -I/usr/include/drm
 
-all: $(NAME)
+all: lib/lib/libglfw3.a $(NAME)
 
 $(NAME): set_mac init_sub build_glfw build_libft $(OBJ_DIR) $(OBJ)
 	@echo "Linkin'"

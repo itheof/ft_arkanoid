@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 07:24:55 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 06:57:10 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 16:16:04 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ static t_lvl	*ft_parse_lvl(struct dirent *file, DIR *dir)
 			new->lvl = get_tab(fd, NULL);
 			close(fd);
 			new->next = ft_parse_lvl(readdir(dir), dir);
-			return (new);
 		}
 		else
 			new = ft_parse_lvl(readdir(dir), dir);
+		return (new);
 	}
 	else
 		return (NULL);

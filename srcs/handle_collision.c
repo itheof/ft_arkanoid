@@ -6,7 +6,7 @@
 /*   By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 07:00:28 by rcargou           #+#    #+#             */
-/*   Updated: 2015/05/03 08:30:30 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 16:31:41 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ void handle_bricks(t_env *e, t_collision col)
 
 void handle_wall(t_env *e, t_collision col)
 {
-	if(col.wallSide == 1 || col.wallSide == 3)
-		e->ball.s_x *= -1;
+	if(col.wallSide == 1)
+		e->ball.s_x = ABS(e->ball.s_x);
 	if (col.wallSide == 2)
-		e->ball.s_y *= -1;
+		e->ball.s_y = -ABS(e->ball.s_y);
+	if (col.wallSide == 3)
+		e->ball.s_x = -ABS(e->ball.s_x);
 	if (!col.wallSide)
 		ft_start_game(e);
 }

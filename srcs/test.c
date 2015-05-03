@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:23:54 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 08:32:42 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 18:04:39 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ void	rule_them_all(t_env *e)
 	if (G_MENU)
 		ft_menu(e, 0);
 	else if (G_RUNNING)
-		ft_running(e);/*
-	else if (G_PAUSED)
-		ft_paused(e);
-	else if (G_OVER)
-		ft_gameover(e);*/
+		ft_running(e);
+	change_title(e);
 }
 
 t_env	*ft_singleton(t_env *e)
@@ -62,6 +59,7 @@ void	ft_print_levels(t_lvl *lvl)
 
 void	ft_start_game(t_env *e)
 {
+	e->score = 0;
 	e->state = 1;
 	e->ball.pos_x = -0.1;
 	e->ball.pos_y = -0.8;
@@ -78,8 +76,8 @@ int main(int ac, char **av)
 		return (-1);
 	if (!glfwInit())
 		return (-1);
-	ft_print_levels(e.lvl_list);
-	
+	e.maxscore = 0;
+	e.lvl = 0;
 	e.window = glfwCreateWindow(WINX, WINY, "Senpai, this will never fit !!", NULL, NULL);
 	if (!e.window)
 	{
@@ -92,11 +90,8 @@ int main(int ac, char **av)
 	while (!glfwWindowShouldClose(e.window))
 	{
 		rule_them_all(&e);
-		glfwSwapBuffers(e.window);
 		glfwPollEvents();
 	}
 	glfwTerminate();
-
-/*	ft_exit(&e);*/
 	return 0;
 }

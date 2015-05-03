@@ -6,7 +6,7 @@
 /*   By: tvallee <tvallee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 23:24:56 by tvallee           #+#    #+#             */
-/*   Updated: 2015/05/03 08:31:43 by rcargou          ###   ########.fr       */
+/*   Updated: 2015/05/03 18:01:11 by tvallee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 # define G_RUNNING e->state == 1
 # define G_MENU e->state == 0
 # define G_OVER e->state == 3
-# define DEFAULT_SPEED 0.05
+# define DEFAULT_SPEED 0.025
+# define ABS(x) (x > 0 ? x : -x)
 
 #define WINX 900
 #define WINY 700
@@ -65,6 +66,9 @@ typedef struct			s_env
 	GLFWwindow			*window;
 	int					list_pos;
 	int					state;
+	int					score;
+	int					maxscore;
+	int					lvl;
 	t_ball				ball;
 	char				*lvl_dir;
 	t_lvl				*lvl_list;
@@ -105,5 +109,8 @@ void					define_color(float *a, float *b, float *c, float va, float vb, float vc
 int						collision(t_collision *collision, t_env *e);
 
 void					handle_collision(t_env *e, t_collision col);
+
+void					change_title(t_env *e);
+void					ft_start_game(t_env *e);
 
 #endif
